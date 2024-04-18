@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Chat</title>
+    <style>
+        /* Add some basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: blue; /* Set the background color to blue */
+        }
+
+        .chat-container {
+            width: 300px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .chat-header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <!-- Navbar content goes here -->
+</div>
+
+<div class="chat-container">
+    <div class="chat-header">Live Chat</div>
+    <div class="chat-messages" id="chat-messages">
+        <!-- Chat messages will appear here -->
+    </div>
+    <input type="text" class="chat-input" id="chat-input" placeholder="Type a message...">
+</div>
+
+<script>
+    // JavaScript for handling the chat functionality
+    // (This part remains the same as in the previous code)
+</script>
+
+</body>
+</html>

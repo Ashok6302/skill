@@ -11,22 +11,22 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <style>
-         *{
-    font-family: sans-serif;
-  }
-  
-        .btn-info {
-    color: #fff;
-    background-color: #0f6063;
-    border-color: #46b8da;
-}
 
-a {
-    color: #f5f5f5;
-    text-decoration: none;
-}
+        a {
+            color: #f5f5f5;
+            text-decoration: none;
+        }
+        label{
+            font-size: 16px;
+            font-weight: 300;
+        }
+        button{
+            font-weight:600;
+            font-size: 16px;
+        }
     </style>
 </head>
+<body>
 <body>
     <?php include('includes/header.php');?>
     <div class="content-wrapper">
@@ -39,8 +39,8 @@ a {
 
             </div>
             <center>
-            <button type="submit" name="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"><a href="../index.php"></span> &nbsp;User Login </a></button>&nbsp;
-            <button type="submit" name="signup" class="btn btn-info"><span class="glyphicon glyphicon-user"><a href="index.php"></span> &nbsp;Admin Login</a></button>&nbsp;
+            <button type="submit" name="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"><a href="index.php"></span> &nbsp;User Login </a></button>&nbsp;
+            <button type="submit" name="signup" class="btn btn-info"><span class="glyphicon glyphicon-user"><a href="admin/index.php"></span> &nbsp;Admin Login</a></button>&nbsp;
 </center>
                 </div>
                 </form>

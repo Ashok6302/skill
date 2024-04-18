@@ -1,14 +1,12 @@
 <?php
 session_start();
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
-    {   
-header('location:index.php');
+error_reporting(0);
+
+if (!isset($_SESSION['login']) || empty($_SESSION['login'])) {
+    header('Location: index.php');
+    exit;
 }
-else{
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -24,102 +22,74 @@ else{
     <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
-<body style="    background-color: #5791d959;">
+<body style="background-color: #5791d959;">
 <?php $activePage = basename($_SERVER['PHP_SELF'],".php"); ?>
 
-<?php include('includes/header1.php');?>
-    <!-- LOGO HEADER END-->
-<?php if($_SESSION['alogin']!="")
-{
-//  include('includes/menubar.php');
-}
- ?>
-    <!-- MENU SECTION END-->
-    <div class="content-wrapper">
-        <div class="container">
-              <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line">Enroll History  </h1>
+<?php include('includes/header.php'); ?>
+<!-- LOGO HEADER END-->
+<?php if(isset($_SESSION['login']) && !empty($_SESSION['login'])) {
+    // include('includes/menubar.php');
+} ?>
+<!-- MENU SECTION END-->
+<div class="content-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">Enroll History</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Enroll History
                     </div>
-                </div>
-                <div class="row" >
-            
-                <div class="col-md-12">
-                    <!--    Bordered Table  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Enroll History
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive table-bordered">
-                                <table class="table">
-                                    <thead>
+                    <div class="panel-body">
+                        <div class="table-responsive table-bordered">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Student Name</th>
+                                        <th>Course Name</th>
+                                        <th>Department</th>
+                                        <th>Course Score</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $sql = mysqli_query($con, "SELECT * FROM students WHERE Regno='".$_SESSION['login']."'");
+                                    $cnt = 1;
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
                                         <tr>
-                                            <th>#</th>
-                                                 <th>Student Name </th>
-                                                    <th>Student Reg no </th>
-                                            <th>Course Name </th>
-                                            <th>Course Score</th>
-                                            
-                                              
-                                             <!-- <th>Enrollment Date</th> -->
-                                             <!-- <th>Action</th> -->
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-<?php
-$sql=mysqli_query($con," select * from students  ");
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
-?>
-
-
-                                        <tr>
-                                            <td><?php echo $cnt;?></td>
-                                              <td><?php echo htmlentities($row['UserName']);?></td>
-                                            <td><?php echo htmlentities($row['Regno']);?></td>
+                                            <td><?php echo $cnt; ?></td>
+                                            <td><?php echo htmlentities($row['UserName']);?></td>
                                             <td><?php echo htmlentities($row['course']);?></td>
-                                            <td><?php echo htmlentities($row['points']);?></td>
-                                          
-                                            
-                                            
+                                            <td><?php echo htmlentities($row['department']);?></td>
+                                            <td><?php echo htmlentities($row['points']); ?></td>
+                                           
                                             <!-- <td>
-                                            <a href="print.php?id=<?php echo $row['cid']?>" target="_blank">
-<button class="btn btn-primary"><i class="fa fa-print "></i> Print</button> </a>                                        
-
-
+                                                <a href="print.php?id=<?php echo $row['cid']?>" target="_blank">
+                                                    <button class="btn btn-primary"><i class="fa fa-print"></i> Print</button>
+                                                </a>
                                             </td> -->
                                         </tr>
-<?php 
-$cnt++;
-} ?>
-
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
+                                        <?php
+                                        $cnt++;
+                                    } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                     <!--  End  Bordered Table  -->
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
-  <?php include('includes/footer.php');?>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+</div>
+<!-- <?php include('includes/footer.php'); ?> -->
+<script src="assets/js/jquery-1.11.1.js"></script>
+<script src="assets/js/bootstrap.js"></script>
 </body>
 </html>
-<?php } ?>

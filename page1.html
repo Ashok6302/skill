@@ -1,0 +1,207 @@
+
+<?php
+session_start();
+include('includes/config.php');
+error_reporting(0);
+if(strlen($_SESSION['login'])==0)
+   
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Student Login</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<style>
+  .card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+    text-align: center;
+  }
+  .card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  .card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+  }
+  .card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
+  }
+
+  .label-rating { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .card-product .price-old {
+    color: #999;
+  }
+</style>
+<body>
+<div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="#" style="color:#fff; font-size:25px;5px; line-height:3px; ">
+                   STUDY BUDDY
+                   <br><br>
+
+                </a>
+
+            </div>
+
+            <div class="right-div">
+            <div align="right">
+            <img src="image/studylogin.png" width="70" height="70">
+            </div>
+        </div>
+            </div>
+        </div>
+
+    <?php if($_SESSION['login']!="")
+{
+ include('includes/homemenubar.php');
+}
+ ?>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">WELCOME TO STUDY BUDDY!!</h4>
+
+                </div>
+
+            </div>
+                </div>
+                </form>
+                <div class="container">
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-4">
+<figure class="card card-product">
+  <div class="img-wrap"><img src="https://wallpapercave.com/wp/wp7250222.jpg"width="370" height="370"></div>
+  <figcaption class="info-wrap">
+      <h4 class="title">Java</h4>
+      <p class="desc">Java is an object-oriented programming language that produces software for multiple platforms. When a programmer writes a Java application.</p>
+      <div class="rating-wrap">
+        <div class="label-rating">132 reviews</div>
+        <div class="label-rating">154 Subcriptions </div>
+      </div> <!-- rating-wrap.// -->
+  </figcaption>
+  <div class="bottom-wrap">
+    <a href="home.php" class="btn btn-sm btn-primary float-right buy_now" data-img="//www.tutsmake.com/wp-content/uploads/2019/03/c05917807.png" data-amount="1000" data-id="1">Enroll Now</a> 
+    <div class="price-wrap h5">
+      <span class="price-new">₹1000</span> <del class="price-old">₹1200</del>
+    </div> <!-- price-wrap.// -->
+  </div> <!-- bottom-wrap.// -->
+</figure>
+</div> <!-- col // -->
+
+<div class="col-md-4">
+<figure class="card card-product">
+  <div class="img-wrap"><img src=https://th.bing.com/th/id/OIP.VZwY093Uo8Mr-uoeFNCAwwHaHa?pid=ImgDet&rs=1 width="370" height="370"> </div>
+  <figcaption class="info-wrap">
+      <h4 class="title">Python</h4>
+      <p class="desc">Python is a computer programming language often used to build websites and software, automate tasks, and conduct data analysis.</p>
+      <div class="rating-wrap">
+        <div class="label-rating">132 reviews</div>
+        <div class="label-rating">144 Subcriptions </div>
+      </div> <!-- rating-wrap.// -->
+  </figcaption>
+  <div class="bottom-wrap">
+      <a href="home.php" class="btn btn-sm btn-primary float-right buy_now" data-img="//www.tutsmake.com/wp-content/uploads/2019/03/vvjghg.png" data-amount="1280" data-id="2">Enroll Now</a> 
+      <div class="price-wrap h5">
+        <span class="price-new">₹1280</span> <del class="price-old">₹1400</del>
+      </div> <!-- price-wrap.// -->
+  </div> <!-- bottom-wrap.// -->
+</figure>
+</div> <!-- col // -->
+
+<div class="col-md-4">
+<figure class="card card-product">
+  <div class="img-wrap"><img src="//www.tutsmake.com/wp-content/uploads/2019/03/jhgjhgjg.jpg" width="370" height="370"></div>
+  <figcaption class="info-wrap">
+      <h4 class="title">C Programming</h4>
+      <p class="desc">In this C Tutorial, you’ll learn all C programming basic to advanced concepts like variables, arrays, pointers, strings, loops, etc. </p>
+      <div class="rating-wrap">
+        <div class="label-rating">122 reviews</div>
+        <div class="label-rating">194 orders </div>
+      </div> <!-- rating-wrap.// -->
+  </figcaption>
+  <div class="bottom-wrap">
+      <a href="home.php" class="btn btn-sm btn-primary float-right buy_now" data-img="//www.tutsmake.com/wp-content/uploads/2019/03/jhgjhgjg.jpg" data-amount="1500" data-id="3">Enroll Now</a> 
+      <div class="price-wrap h5">
+        <span class="price-new">₹1500</span> <del class="price-old">₹1980</del>
+      </div> <!-- price-wrap.// -->
+  </div> <!-- bottom-wrap.// -->
+</figure>
+</div> <!-- col // -->
+</div> <!-- row.// -->
+
+</div> 
+<!--container.//-->
+ 
+  
+  <br><br>
+  
+                    <div class="alert alert-info" >
+                        This is a Study buddy app  with basic Courses. 
+                        From Saveetha School of Engineering
+                        <br />
+                         <strong> Some of its features are given below :</strong>
+                        <ul>
+                            <li>
+                                 Responsive Classes Used
+                            </li>
+                            <li>
+                                Easy to use and customize
+                            </li>
+                            <li>
+                                Font awesome icons included
+                            </li>
+                            <li>
+                                Clean and light code used.
+                            </li>
+                            <li>
+                                Education for your brighthness
+                            </li>
+                        </ul>
+                    </div>
+                                    </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <?php include('includes/footer.php');?>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+</html>

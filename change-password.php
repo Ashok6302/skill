@@ -2,7 +2,8 @@
 <?php
 session_start();
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+error_reporting(0);
+if(strlen($_SESSION['login'])==0)
     {   
 header('location:index.php');
 }
@@ -13,16 +14,16 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 
 if(isset($_POST['submit']))
 {
-$sql=mysqli_query($con,"SELECT password FROM  admin where password='".($_POST['cpass'])."' && username='".$_SESSION['alogin']."'");
+$sql=mysqli_query($con,"SELECT password FROM  students where password='".md5($_POST['cpass'])."' && studentRegno='".$_SESSION['login']."'");
 $num=mysqli_fetch_array($sql);
 if($num>0)
 {
- $con=mysqli_query($con,"update admin set password='".($_POST['newpass'])."', updationDate='$currentTime' where username='".$_SESSION['alogin']."'");
+ $con=mysqli_query($con,"update students set password='".md5($_POST['newpass'])."', updationDate='$currentTime' where studentRegno='".$_SESSION['login']."'");
 $_SESSION['msg']="Password Changed Successfully !!";
 }
 else
 {
-$_SESSION['msg']="Old Password not match !!";
+$_SESSION['msg']="Current Password not match !!";
 }
 }
 ?>
@@ -34,7 +35,7 @@ $_SESSION['msg']="Old Password not match !!";
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin | Change Password</title>
+    <title>User | Student Password</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
@@ -70,9 +71,11 @@ return true;
 }
 </script>
 <body style="    background-color: #5791d959;">
-<?php include('includes/header1.php');?>
+<?php $activePage = basename($_SERVER['PHP_SELF'],".php"); ?>
+
+<?php include('includes/header.php');?>
     <!-- LOGO HEADER END-->
-<?php if($_SESSION['alogin']!="")
+<?php if($_SESSION['login']!="")
 {
 //  include('includes/menubar.php');
 }
@@ -82,8 +85,7 @@ return true;
         <div class="container">
               <div class="row">
                     <div class="col-md-12">
-                        <!-- <h1 class="page-head-line">Admin Change Password </h1> -->
-                        <h4>Change Password</h4>
+                        <h1 class="page-head-line1">Student Change Password </h1>
                     </div>
                 </div>
                 <div class="row" >
@@ -126,23 +128,13 @@ return true;
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
-
+  <!-- <?php include('includes/footer.php');?> -->
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
     <script src="assets/js/bootstrap.js"></script>
-</body >
+</body>
 </html>
 <?php } ?>
-<style>
-  *{
-    font-family: sans-serif;
-  }
-  h4, .h4 {
-    font-size: 18px;
-    font-weight: bolder;
-    font-size: xx-large;
-}
-</style>
